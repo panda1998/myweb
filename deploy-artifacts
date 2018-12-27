@@ -1,0 +1,35 @@
+pipeline {
+agent any
+tools {
+maven 'maven-3.5.0'
+jdk 'jdk1.8'
+}
+stages {
+stage ('Initialize') {
+steps {
+sh '''
+echo "PATH = ${PATH}"
+echo "M2_HOME = ${M2_HOME}"
+'''
+}
+}
+stage('git-clone') {
+steps {
+git 'https://github.com/kliakos/sparkjava-war-example.git'
+  }
+  }
+  stage('compile'){
+  steps {
+    sh 'mvn package'
+  }
+  }
+  stage ('Deploy'){
+  steps {
+sshagent(['3e306f8f-8828-4042-be18-82f505955d0e']) {
+    // some block
+}
+}
+	}
+	}
+	}
+}
