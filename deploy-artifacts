@@ -25,7 +25,7 @@ git 'https://github.com/kliakos/sparkjava-war-example.git'
   }
   stage ('Deploy'){
   steps {
-sshagent(['3e306f8f-8828-4042-be18-82f505955d0e']) {
+sshagent(['2e343adf-e8d9-4bf0-a372-90aff675fa40'']) {
     // some block
 }
 }
