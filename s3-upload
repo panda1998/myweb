@@ -1,0 +1,34 @@
+pipeline {
+   agent {label "master"}
+    
+    tools {
+        maven 'maven-3.5.0'
+        jdk 'jdk-1.8'
+    }
+    stages {
+        stage ('Initialize') {
+            steps {
+                sh '''
+                    echo "PATH = ${PATH}"
+                    echo "M2_HOME = ${M2_HOME}"
+                '''
+            }
+        }
+
+ stage ('Compile-Package') {
+            steps {
+                git "https://github.com/john-smart/game-of-life.git"
+               sh 'mvn clean package'
+             // sh 'mvn package'
+            }
+          post {
+                success {
+                    archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
+                    junit '**/target/surefire-reports/*.xml' 
+                   
+s3Upload consoleLogLevel: 'INFO', dontWaitForConcurrentBuildCompletion: false, entries: [[bucket: 'jenkins-aws-poc', excludedFile: '', flatten: false, gzipFiles: false, keepForever: false, managedArtifacts: false, noUploadOnFailure: false, selectedRegion: 'us-east-1', showDirectlyInBrowser: false, sourceFile: '**/target/surefire-reports/*.xml', storageClass: 'STANDARD', uploadFromSlave: false, useServerSideEncryption: false]], pluginFailureResultConstraint: 'FAILURE', profileName: 'jenkins-aws-poc', userMetadata: []
+}
+}
+}
+}
+}
