@@ -1,6 +1,6 @@
 pipeline
 {
-   agent {label "sonarqube(new)slave-1"}
+   agent {label "jenkins-ubuntu(master)"}
    
     tools 
      {
