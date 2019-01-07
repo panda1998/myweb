@@ -55,7 +55,7 @@ sshagent(['13374cac-cdf9-489e-834e-f5b3b6518875']) {
     stage('Run JMeter Test') {
         steps {
         
-                sh '/bin/apache-jmeter-5.0/bin/jmeter.sh -n -t /bin/apache-jmeter-5.0/test.jmx -l $WORKSPACE/build-result.jtl'
+                sh '/bin/apache-jmeter-5.0/bin/jmeter.sh -n -t /bin/apache-jmeter-5.0/ForEachTest2.jmx -l $WORKSPACE/build-result.jtl'
             }
 	    post {
     success {
