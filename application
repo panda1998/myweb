@@ -1,11 +1,11 @@
 pipeline
 {
-   agent {label "jenkins-ubuntu(master)"}
+   agent {label "jenkins-ubuntu"}
    
     tools 
      {
      maven 'maven-3.5.0'
-     jdk '1.8'
+     jdk 'jdk1.8'
      }
   stages
    {
