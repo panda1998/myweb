@@ -58,9 +58,9 @@ sshagent(['13374cac-cdf9-489e-834e-f5b3b6518875']) {
                 sh '/bin/apache-jmeter-5.0/bin/jmeter.sh -n -t /bin/apache-jmeter-5.0/ForEachTest2.jmx -l $WORKSPACE/build-result.jtl'
             }
 	    post {
-    success {
-  perfReport 'build-result.jtl'
-}}
+       success {
+       perfReport 'build-result.jtl'
+       }}
         }
 	
     stage('Email Notification'){
