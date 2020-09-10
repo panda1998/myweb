@@ -1,10 +1,9 @@
 pipeline{
-    agent any 
+    agent any
     stages{
-        stage("source"){
+        stage("Git Checkout"){
             steps{
-                 "git 'https://github.com/panda1998/myweb'"
-           }
+                git credentialsId: 'github', url: 'https://github.com/javahometech/myweb'
+            }
         }
-    }
-}
+        
