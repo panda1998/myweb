@@ -9,8 +9,12 @@ pipeline{
         stage("Maven Build"){
             steps{
                 sh "mvn clean package"
-                
+                 }
             }
+        stage("deploy-dev"){
+            sshagent(['tomcat-new']) {
+             // some block
+           }
         }
      }
   }
