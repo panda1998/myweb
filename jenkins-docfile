@@ -1,3 +1,5 @@
+currentBuild.displayName = "Book-show-#"+currentBuild.number
+
 pipeline{
     agent any
     
