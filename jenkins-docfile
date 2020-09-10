@@ -1,0 +1,10 @@
+pipeline{
+    agent any 
+    stages{
+        stage("source"){
+            steps{
+                 "git 'https://github.com/panda1998/myweb'"
+           }
+        }
+    }
+}
