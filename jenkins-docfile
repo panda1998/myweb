@@ -5,7 +5,13 @@ pipeline{
             steps{
                git credentialsId: 'github' url: 'https://github.com/panda1998/myweb'
                 }
+            }
+        stage("Maven Build"){
+            steps{
+                sh "mvn clean package"
+                
+            }
         }
-       }
      }
+  }
         
