@@ -4,9 +4,8 @@ node {
     }
     
     stage('Maven Build'){
-      sh 'mvn clean package'   
+      sh 'clean package'   
     }
-    
     
     stage('Email'){
     
