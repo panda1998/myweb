@@ -6,9 +6,7 @@ node {
     stage('Maven Build'){
       sh 'mvn clean package'   
     }
-    stage('Archive Artifacts'){
-         archiveArtifacts 'target/myweb.war'
-    }
+    
     
     stage('Email'){
     
